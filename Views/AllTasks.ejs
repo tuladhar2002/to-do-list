@@ -1,0 +1,60 @@
+<%- include("partials/header.ejs") %>
+
+<section id="allTasks">
+    <div class="test-box d-flex justify-content-center align-items-center">
+        <div class="task-box d-flex justify-content-center align-items-center mt-4">
+            <div class="box d-block">
+                <form action="/createTask" method="POST">
+                    <div class="add-item d-flex justify-content-center align-items-center">
+                        <div class="create-item d-inline-flex">
+                            <input class="form-control form-control-lg" name="newTask" type="text" placeholder="Create a new task" aria-label=".form-control-lg example">
+                            <button type="submit" value="Submit" class="nav-link add-task-button">+ Add Task</button>
+                                <!-- <input type="submit" class="add-task-button" value="Add Task"> -->
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="item align-content-center">
+                    <input type="checkbox">
+                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;mklnrtnfgvfdfdbgtghtrgtrhgtrg
+                        ergreregregerverbreber
+                    </p>  
+                </div>
+                <div class="item d-block align-content-center">
+                    <input type="checkbox">
+                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;mklnrtnfgvfdfdbgtghtrgtrhgtrg
+                        ergreregregerverbreber
+                    </p>  
+                </div>
+                <div class="item d-block">
+                    <input type="checkbox" class="d-inline-block">
+                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;m
+                    </p>  
+                </div>
+                <div class="item  d-block">
+                    <input type="checkbox">
+                    <p class="task-text d-inline-flex">dvdsvdvthrtht
+                    </p>  
+                </div>
+                <div class="item  d-block">
+                    <input type="checkbox" class="d-inline-block">
+                    <p class="task-text d-inline-flex">dvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrtht
+                        dvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrtht
+                    </p>  
+                </div>
+                <% if(locals.task){ %>
+                    <% locals.task.forEach(function(tasks){ %>
+                        <div class="item d-block">
+                            <input type="checkbox" class="d-inline-block">
+                            <p class="task-text d-inline-flex">
+                                <%= tasks %>
+                            </p>  
+                        </div>
+                        <% }); %>
+                    <% } %>
+            </div>
+        
+      
+        </div>
+    </div>
+</section>

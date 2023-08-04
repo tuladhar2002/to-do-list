@@ -1,0 +1,84 @@
+
+body{
+    background-color: #FEEBC6;
+}
+.navbar-brand img{
+    filter: drop-shadow(7px 7px 7px #666666);
+    -webkit-filter: drop-shadow(7px 7px 7px #666666);
+}
+
+.nav-link .home-logo{
+    filter: drop-shadow(7px 7px 7px #666666);
+    -webkit-filter: drop-shadow(7px 7px 7px #666666);
+    
+}
+.nav-link .tasks-logo{
+    text-emphasis: bold;
+    filter: drop-shadow(7px 7px 7px #666666);
+    -webkit-filter: drop-shadow(7px 7px 7px #666666);
+}
+
+.time-box{
+    margin-top: 200px;
+    background-color: aliceblue;
+    align-items: center;
+    filter: drop-shadow(7px 7px 7px #666666);
+    -webkit-filter: drop-shadow(7px 7px 7px #666666);
+    
+}
+.current-date{
+    font-family: 'Caveat', cursive;
+  
+}
+.item, .add-item{
+    margin-top: 20px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    filter: drop-shadow(4px 4px 4px #666666);
+    -webkit-filter: drop-shadow(4px 4px 4px #666666);
+    
+}
+.task-box{
+    padding-left: 500px;
+    padding-right: 500px;
+   
+   
+}
+.task-text{
+    margin: 20px;
+}
+.box{
+    min-width: 500px;
+    min-height: 200px;
+    
+    
+}
+.weekDay{
+
+    font-family: 'Caveat';
+}
+
+input[type="checkbox"]{
+    margin: 20px;
+}
+
+.add-item{
+    min-height: 5rem;
+}
+.form-control{
+    width: 400px;
+    margin-right: 15px;
+    background-color: transparent;
+}
+.add-task-button{
+    padding-top: 5px;
+    margin: 0px;
+    
+}
+.line-design{
+    margin: 0px;
+}
+.footer-partition{
+    margin-top: 15rem;
+    text-shadow: #666666;
+}

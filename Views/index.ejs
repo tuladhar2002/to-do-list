@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+
+<section id="date-time">
+    <div class="outer-box d-flex justify-content-center align-items-center">
+        <div class="align-box">
+            <div class="box time-box d-block p-5 align-items-center">
+                <div class="clock">
+                    <% if(locals.day){ %>
+                        <h1 class="current-date fw-bold"><%= day%>
+                            <% if(day===1){%>
+                            st
+                            <% } else if(day===2){%>
+                            nd
+                            <% } else if(day===3){%>
+                                rd
+                            <% }else{ %>
+                                th
+                            <% } %>
+                            <%= month %>, <%= year %> </h1>
+                        <% } %>
+                </div>
+                <div class="weekDay d-block">
+                    <% if(locals.week_day){ %>
+                        <h2> <%= locals.week_day %> </h2>
+                    <% } %>    
+                </div>
+                <hr class="line-design">
+            </div>
+            <div class="align-box d-flex justify-content-center align-items-center">
+                <a href="/allTasks">
+                    <button type="button" class="btn btn-outline-dark mt-3">See All Tasks</button>
+                </a>
+            </div>
+            
+            
+        </div>
+    </div>
+   
+    
+</section>  
+
+
+<%- include("partials/footer.ejs") %>
