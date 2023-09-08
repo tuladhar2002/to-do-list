@@ -39,18 +39,20 @@ body{
     
 }
 .task-box{
-    padding-left: 500px;
-    padding-right: 500px;
-   
+    padding-left: 5rem;
+    padding-right: 5rem;
+    max-width: 700pxt;
    
 }
 .task-text{
     margin: 20px;
+    max-width: 500px;
+    text-overflow: hidden;
 }
 .box{
-    min-width: 500px;
+    min-width: 700px;
     min-height: 200px;
-    
+    max-width: 700px;
     
 }
 .weekDay{
@@ -64,6 +66,8 @@ input[type="checkbox"]{
 
 .add-item{
     min-height: 5rem;
+    min-width: 10rem;
+    padding: 2rem;
 }
 .form-control{
     width: 400px;
@@ -74,6 +78,11 @@ input[type="checkbox"]{
     padding-top: 5px;
     margin: 0px;
     
+}
+.delete-item{
+    display: inline-flex;
+    align-items: flex-end;
+    padding-right: 2rem;
 }
 .line-design{
     margin: 0px;

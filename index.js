@@ -1,5 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
+
+
+mongoose.connect("mongodb://localhost:27017/to-do-list", {useNewUrlParser: true});
 
 const app = express();
 const port = 3000;
@@ -7,7 +11,18 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const Tasks = [];
+
+
+//schema for to-do-list dbs
+
+const taskSchema = new mongoose.Schema({
+    task: {
+        type: String,
+        required: [true, "No tasks added "],
+    }
+});
+
+const Task = mongoose.model("Task", taskSchema);
 
 function getDay(day){
     switch(day){
@@ -103,16 +118,39 @@ app.get("/", (req, res)=>{
 app.get(["/logo-click","/home"], (req, res)=>{
     res.redirect("/");
 });
-app.get("/allTasks", (req, res)=>{
+app.get("/allTasks", async(req, res)=>{
+    var data;
+    try{
+        const dbsTasks = Task.find();
+        data = await dbsTasks.exec();
+
+    }catch(err){
+        console.log(err);
+    };
     res.render("AllTasks.ejs",{
-        task: Tasks,
+        task: data,
     });
 });
 
-app.post("/createTask", (req, res)=>{
-    Tasks.push(req.body.newTask);
+app.post("/createTask", async(req, res)=>{
+
+    var data;
+
+    var task = new Task({
+        task: req.body.newTask,
+    });
+
+    task.save();
+
+    try{
+        const dbsTasks = Task.find();
+        data = await dbsTasks.exec();
+    }catch(err){
+        console.log(err);
+    };
+
     res.render("AllTasks.ejs", {
-        task: Tasks,
+        task: data,
     });
 });
 

@@ -9,46 +9,28 @@
                         <div class="create-item d-inline-flex">
                             <input class="form-control form-control-lg" name="newTask" type="text" placeholder="Create a new task" aria-label=".form-control-lg example">
                             <button type="submit" value="Submit" class="nav-link add-task-button">+ Add Task</button>
-                                <!-- <input type="submit" class="add-task-button" value="Add Task"> -->
                         </div>
                     </div>
                 </form>
-                
-                <div class="item align-content-center">
-                    <input type="checkbox">
-                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;mklnrtnfgvfdfdbgtghtrgtrhgtrg
-                        ergreregregerverbreber
-                    </p>  
-                </div>
-                <div class="item d-block align-content-center">
-                    <input type="checkbox">
-                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;mklnrtnfgvfdfdbgtghtrgtrhgtrg
-                        ergreregregerverbreber
-                    </p>  
-                </div>
-                <div class="item d-block">
-                    <input type="checkbox" class="d-inline-block">
-                    <p class="task-text d-inline-flex">dvdsvdvthrthtjhtrhmrjlhnklhntkhntrhkntrpkhmfklb;mgfkn;m
-                    </p>  
-                </div>
-                <div class="item  d-block">
-                    <input type="checkbox">
-                    <p class="task-text d-inline-flex">dvdsvdvthrtht
-                    </p>  
-                </div>
-                <div class="item  d-block">
-                    <input type="checkbox" class="d-inline-block">
-                    <p class="task-text d-inline-flex">dvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrtht
-                        dvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrthtdvdsvdvthrtht
-                    </p>  
-                </div>
                 <% if(locals.task){ %>
                     <% locals.task.forEach(function(tasks){ %>
-                        <div class="item d-block">
-                            <input type="checkbox" class="d-inline-block">
-                            <p class="task-text d-inline-flex">
-                                <%= tasks %>
-                            </p>  
+                        <div class="item d-flex align-items-center">
+                            <form action="/allTasks" method="POST" id="checkboxForm">
+                                <input type="hidden" name="checkbox" value="false">
+                            </form>
+                            
+                            <label class="d-flex align-items-center flex-grow-1">
+                                <input type="checkbox" class="d-inline-block" name="checkbox">
+                                <p class="task-text d-inline-flex">
+                                    <%= tasks.task %>
+                                </p>  
+                            </label>
+                            <span class="delete-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                  </svg>
+                            </span>
                         </div>
                         <% }); %>
                     <% } %>
