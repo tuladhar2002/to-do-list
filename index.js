@@ -109,7 +109,7 @@ const currentYear  = currentDate[2];
 const currentWeekDay  = currentDate[3];
 
 app.get("/", (req, res)=>{
-    res.render("/index.ejs", {
+    res.render("../views/index.ejs", {
         day: currentDay,
         month: currentMonth,
         year: currentYear,
@@ -128,7 +128,7 @@ app.get("/allTasks", async(req, res)=>{
     }catch(err){
         console.log(err);
     };
-    res.render("/AllTasks.ejs",{
+    res.render("../views/AllTasks.ejs",{
         task: data,  
     });
 });
