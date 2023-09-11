@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 
-mongoose.connect("mongodb+srv://tuladhar002:Flashfinal026@test-cluster.py7zslw.mongodb.net/to-do-listsDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://tuladhar002:Flashfinal026@test-cluster.py7zslw.mongodb.net/to-do-listsDB", {useNewUrlParser: true}, { useUnifiedTopology: true });
 
 const app = express();
 const port = 3000;
