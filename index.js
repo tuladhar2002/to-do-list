@@ -12,6 +12,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+console.log("test");
 
 //schema for to-do-list dbs
 
