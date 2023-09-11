@@ -19,11 +19,8 @@
                                     <!-- <form action="/doneTasks" method="POST"> -->
                                         <input type="checkbox" class="d-inline-block" name="checkbox" value="<%=tasks._id%>" onChange="this.form.submit()">
                                             <p class="task-text d-inline-flex">
-                                            <%= tasks.task %>
-                                          
-                                            </p>  
-                                        
-                                    </form>
+                                                <%= tasks.task %>
+                                            </p> 
                                 </label>
                                 <form action="/deleteTask" method="POST">
                                     <span class="delete-item">
@@ -31,9 +28,7 @@
                                         <input type="image" src="images/delete-button.svg" />
                                     </span>
                                 </form>
-                            </div>
-                        
-                        
+                            </div> 
                     <% }); %>
                 <% } %>
             </div>

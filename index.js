@@ -109,7 +109,7 @@ const currentYear  = currentDate[2];
 const currentWeekDay  = currentDate[3];
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs", {
+    res.render("./index.ejs", {
         day: currentDay,
         month: currentMonth,
         year: currentYear,
@@ -128,7 +128,7 @@ app.get("/allTasks", async(req, res)=>{
     }catch(err){
         console.log(err);
     };
-    res.render("AllTasks.ejs",{
+    res.render("./AllTasks.ejs",{
         task: data,  
     });
 });
@@ -151,34 +151,6 @@ app.post("/deleteTask", async(req,res)=>{
     res.redirect("/allTasks");
 });
 
-// app.post("/doneTasks", async(req, res)=>{
-//     var data;
-//     try{
-//         const dbsTasks = Task.find();
-//         data = await dbsTasks.exec();
-
-//     }catch(err){
-//         console.log(err);
-//     };
-
-//      //done items
-//      var isChecked="false";
-//      if(req.body.checkbox==="on"){
-//          isChecked="true";
-//      }else{
-//          isChecked="false";
-//      };
-
-//      res.render("AllTasks.ejs",{
-//         task: data,
-//         checked: isChecked,
-//      })
-   
-// });
-
-// app.get("/:customListName", async(req, res)=>{
-//     console.log(req.params.customListName);
-// });
 
 app.listen(port, ()=>{
     console.log(`Listening to server on port ${port}`);
