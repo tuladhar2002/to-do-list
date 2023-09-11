@@ -10,6 +10,7 @@ const port = 3000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
 
 console.log("test");
@@ -109,7 +110,7 @@ const currentYear  = currentDate[2];
 const currentWeekDay  = currentDate[3];
 
 app.get("/", (req, res)=>{
-    res.render("../views/index.ejs", {
+    res.render("index", {
         day: currentDay,
         month: currentMonth,
         year: currentYear,
@@ -128,7 +129,7 @@ app.get("/allTasks", async(req, res)=>{
     }catch(err){
         console.log(err);
     };
-    res.render("../views/AllTasks.ejs",{
+    res.render("AllTasks",{
         task: data,  
     });
 });
