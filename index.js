@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 
-mongoose.connect("mongodb://localhost:27017/to-do-list", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://tuladhar002:Flashfinal026@test-cluster.py7zslw.mongodb.net/to-do-listsDB", {useNewUrlParser: true});
 
 const app = express();
 const port = 3000;
@@ -128,13 +128,11 @@ app.get("/allTasks", async(req, res)=>{
         console.log(err);
     };
     res.render("AllTasks.ejs",{
-        task: data,
+        task: data,  
     });
 });
 
 app.post("/createTask", async(req, res)=>{
-
-    var data;
 
     var task = new Task({
         task: req.body.newTask,
@@ -142,18 +140,44 @@ app.post("/createTask", async(req, res)=>{
 
     task.save();
 
-    try{
-        const dbsTasks = Task.find();
-        data = await dbsTasks.exec();
-    }catch(err){
-        console.log(err);
-    };
-
-    res.render("AllTasks.ejs", {
-        task: data,
-    });
+    res.redirect("/allTasks");
 });
 
+app.post("/deleteTask", async(req,res)=>{
+
+    await Task.deleteOne({_id: req.body.deleteItem});
+
+    res.redirect("/allTasks");
+});
+
+// app.post("/doneTasks", async(req, res)=>{
+//     var data;
+//     try{
+//         const dbsTasks = Task.find();
+//         data = await dbsTasks.exec();
+
+//     }catch(err){
+//         console.log(err);
+//     };
+
+//      //done items
+//      var isChecked="false";
+//      if(req.body.checkbox==="on"){
+//          isChecked="true";
+//      }else{
+//          isChecked="false";
+//      };
+
+//      res.render("AllTasks.ejs",{
+//         task: data,
+//         checked: isChecked,
+//      })
+   
+// });
+
+// app.get("/:customListName", async(req, res)=>{
+//     console.log(req.params.customListName);
+// });
 
 app.listen(port, ()=>{
     console.log(`Listening to server on port ${port}`);
