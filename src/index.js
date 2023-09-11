@@ -1,22 +1,21 @@
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path'); 
+const mongoose = require('mongoose');
 
 mongoose.connect("mongodb+srv://tuladhar002:Flashfinal026@test-cluster.py7zslw.mongodb.net/to-do-listsDB", {useNewUrlParser: true}, { useUnifiedTopology: true });
 
 const app = express();
 const port = 3000;
 
-
+// Set the views directory to the correct path
+app.set('views', path.join(__dirname,'views'));
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 
-
-console.log("test");
 
 //schema for to-do-list dbs
 
@@ -113,7 +112,7 @@ const currentYear  = currentDate[2];
 const currentWeekDay  = currentDate[3];
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs", {
+    res.render("index", {
         day: currentDay,
         month: currentMonth,
         year: currentYear,
