@@ -2,8 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); 
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
 
-mongoose.connect("mongodb+srv://tuladhar002:Flashfinal026@test-cluster.py7zslw.mongodb.net/to-do-listsDB", {useNewUrlParser: true}, { useUnifiedTopology: true });
+dotenv.config();
+console.log(process.env.ATLAS_URL);
+
 
 const app = express();
 const port = 3000;
@@ -15,6 +18,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+mongoose.connect(process.env.ATLAS_URL, {useNewUrlParser: true}, { useUnifiedTopology: true });
 
 
 //schema for to-do-list dbs
